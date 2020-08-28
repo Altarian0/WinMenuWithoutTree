@@ -1,0 +1,25 @@
+﻿<Window x:Class="WinMenu.Forms.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinMenu"
+        xmlns:c="clr-namespace:WinMenu.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="550" MinHeight="450" MinWidth="550">
+    <Grid>
+        <TreeView x:Name="MainList" ScrollViewer.CanContentScroll="false" Margin="0,60,0,0">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding File }">
+                    <c:FolderControl></c:FolderControl>
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <c:FileControl></c:FileControl>
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="406,14,0,0" VerticalAlignment="Top" Width="126" Height="37" Click="AddButton_Click"/>
+    </Grid>
+</Window>
