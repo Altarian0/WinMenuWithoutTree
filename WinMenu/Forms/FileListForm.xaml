@@ -8,7 +8,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="550" MinHeight="450" MinWidth="550">
     <Grid>
-        <ListBox x:Name="MainList" ScrollViewer.CanContentScroll="false" Margin="0,60,0,0" SelectionChanged="MainList_SelectionChanged">
+        <ListBox x:Name="MainList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="false" Margin="0,60,0,0" SelectionChanged="MainList_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" ScrollViewer.CanContentScroll="False">
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <c:FileControl Margin="0"></c:FileControl>
